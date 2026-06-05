@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <!-- Head-Titel eingeben -->
+  <title>Linkseite</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+  <!-- <link rel="icon" href="images/landeswappen.jpg"> -->
+  <link rel="icon" type="image/png" href="favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg" />
+  <link rel="shortcut icon" href="favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
+  <link rel="manifest" href="favicon/site.webmanifest" />
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand__text">
+        <!-- Hier können die Überschriften eingetragen werden -->
+        <div class="brand__title"><strong>Linkseite</strong></div>
+        <div class="brand__subtitle">Untertitel</div>
+      </div>
+    </div>
+
+    <input id="searchInput" type="search" placeholder="Suche (Strg+S)" />
+  </header>
+
+  <main class="container">
+    <nav id="tabs" class="tabs"></nav>
+
+    <section class="panel">
+      <h2 id="activeTabTitle"></h2>
+      <div id="grid" class="grid"></div>
+    </section>
+  </main>
+  <footer class="footer">
+  <!-- Hier können Footer-Inhalte eingetragen werden -->
+  Footer-Text
+  </footer>
+
+  <!-- JSON direkt eingebettet -->
+  <script id="links-data" type="application/json">
+  [
+    {
+      "tab": "Beispiel 1",
+      "links": [
+        {
+          "title": "Google",
+          "url": "https://www.google.de",
+          "desc": "Die weltweit führende Suchmaschine",
+          "icon": "",
+          "tag": "suche, web",
+          "color": "blue"
+        },
+        {
+          "title": "Grundgesetz",
+          "url": "https://www.gesetze-im-internet.de/gg",
+          "desc": "Verfassung der Bundesrepublik Deutschland",
+          "icon": "🏛️",
+          "tag": "verfassung, recht",
+          "color": "green"
+        }
+      ]
+    },
+    {
+      "tab": "Beispiel 2",
+      "links": [
+        {
+          "title": "Google Maps",
+          "url": "https://maps.google.de",
+          "desc": "Die weltweit führende Karten- und Verkehrsanwendung",
+          "icon": "",
+          "tag": "karten, verkehr",
+          "color": "blue"
+        },
+        {
+          "title": "Grundgesetz (PDF)",
+          "url": "https://www.gesetze-im-internet.de/gg/GG.pdf",
+          "desc": "Verfassung der Bundesrepublik Deutschland",
+          "icon": "🏛️",
+          "tag": "verfassung, recht",
+          "color": "green"
+        }
+      ]
+    }
+  ]
+  </script>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,241 @@
+/* 
+Hier können die globalen Styles für die Link-Seite definiert werden.
+
+Farben selbst anpassen: Einfach die Werte in den CSS-Variablen am Anfang ändern.
+*/
+
+:root {
+  --blue:#0062c4;
+  --green:#00ab00;
+  --red:#ff0000;
+  --white:#ffffff;
+  --icon-size: 2rem;
+  --logo-size: 40px;
+  --badge-size: 36px;
+}
+
+html, body {
+  height: 100%;
+  user-select: none; 
+}
+
+body {
+  margin:0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  background:#f5f7fa;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+
+.topbar {
+  padding:16px;
+  background:var(--blue);
+  color:white;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+main.container {
+  flex: 1;
+  min-height: 0;
+
+  display: flex;
+  flex-direction: column;
+  padding: 0 16px;
+}
+
+
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 8px 0 10px;
+}
+
+@media (max-width: 600px) {
+  .tab {
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+}
+
+header {
+	user-select: none; 
+}
+
+
+.footer {
+  user-select: none; 
+  height: 36px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: var(--blue);
+  color: white;
+
+  font-size: 12px;
+  flex-shrink: 0;
+}
+
+/* ===== TABS ===== */
+
+.tab {
+  border: 1px solid rgba(0,48,100,.25);
+  background: rgba(255,255,255,.85);
+  padding: 10px 14px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--blue);
+  transition:
+    background .15s ease,
+    color .15s ease,
+    border-color .15s ease,
+    box-shadow .15s ease;
+}
+
+/* 🔴 Hover – nur inaktive Tabs */
+.tab:not(.is-active):hover {
+  color: var(--blue);
+  border-color: rgba(212,0,74,.45);
+  background: rgba(212,0,74,.08);
+  box-shadow: 0 6px 14px rgba(212,0,74,.18);
+}
+
+/* 🟢 Aktiver Tab */
+.tab.is-active {
+  color: var(--blue);
+  border-color: rgba(0,162,171,.55);
+  background: rgba(0,162,171,.16);
+  box-shadow: 0 6px 14px rgba(0,162,171,.22);
+}
+
+/* Tastatur-Fokus */
+.tab:focus-visible {
+  outline: 3px solid rgba(0,162,171,.35);
+  outline-offset: 2px;
+}
+
+/* ===== KARTEN ===== */
+
+.grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+  gap:14px;
+}
+
+.card {
+  background:white;
+  border-radius:8px;
+  padding:14px;
+  display:flex;
+  gap:12px;
+  text-decoration:none;
+  color:black;
+  border-left:6px solid var(--blue);
+}
+
+.icon {
+  font-size: var(--icon-size);
+}
+
+.card img {
+  width: var(--logo-size);
+  height: var(--logo-size);
+}
+
+/* ===== Hover-Effekt für Karten ===== */
+
+.card {
+  transition:
+    box-shadow .18s ease,
+    transform .18s ease,
+    border-color .18s ease;
+}
+
+/* leichtes Anheben */
+.card:hover {
+  transform: translateY(-1.5px);
+}
+
+/* 🔵 Blau */
+.card.blue:hover {
+  box-shadow:
+    0 8px 22px rgba(0,48,100,.30);
+}
+
+/* 🟢 Grün */
+.card.green:hover {
+  box-shadow:
+    0 8px 22px rgba(0,162,171,.30);
+}
+
+/* 🔴 Rot */
+.card.red:hover {
+  box-shadow:
+    0 8px 22px rgba(212,0,74,.30);
+}
+
+.card:focus-visible {
+  box-shadow: 0 8px 22px rgba(0,48,100,.30);
+  outline: none;
+}
+
+/* Hier können die Border-Farben für die Karten definiert werden */
+.card.green { border-color: var(--green); }
+.card.red { border-color: var(--red); }
+.card.blue { border-color: var(--blue); }
+
+.badge {
+  width: var(--badge-size);
+  height: var(--badge-size);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-shrink: 0;
+  font-size: var(--icon-size);
+}
+
+/* 🖼️ Bild im Badge */
+.badge__img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 3px;
+}
+
+.card__title {
+  font-weight:700;
+}
+
+.card__desc {
+  font-size:13px;
+  opacity:.75;
+}
+
+.panel {
+  flex: 1;
+  overflow-y: auto;
+  padding-top: 8px;
+  margin-right: -16px;     /* ⬅️ Scrollbar nach außen */
+  padding-right: 16px;     /* ⬅️ Inhalt bleibt bündig */
+  padding-bottom: 16px;
+}
+
+
+.panel::-webkit-scrollbar {
+  width: 8px;
+}
+
+.panel::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,.25);
+  border-radius: 8px;
+}
