@@ -31,3 +31,11 @@ Hier ist ein Beispiel für die JSON-Struktur, die zur Definition der Tabs und Li
 ```
 
 Das Favicon-Logo wurde mit [realfavicongenerator](https://realfavicongenerator.net/) erstellt und kann durch Ersetzen der Dateien im `favicon`-Ordner angepasst werden. Die Farben der Karten können durch Ändern der CSS-Variablen in `style.css` angepasst werden.
+
+## Beispiel live
+
+[Hier](https://fabianbloch.github.io/link-page/) kann das Beispiel live angesehen werden. Es enthält zwei Tabs mit jeweils zwei Links, die als Karten dargestellt werden. Die Seite ist responsiv und funktioniert auf verschiedenen Bildschirmgrößen gut.
+
+## Anpassung
+
+Die Seite kann leicht angepasst werden, indem die JSON-Struktur in `index.html` geändert wird. Neue Tabs und Links können hinzugefügt oder bestehende bearbeitet werden. Die Farben der Karten können durch Ändern der CSS-Variablen in `style.css` angepasst werden. Icons können entweder als Emoji oder als Bild-URL hinzugefügt werden.
