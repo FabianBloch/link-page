@@ -1,3 +1,9 @@
+/*
+ * Linkseite Bloch
+ * Copyright (c) 2026 Fabian Bloch
+ * SPDX-License-Identifier: MIT
+*/
+
 /* 
 Hier können die globalen Styles für die Link-Seite definiert werden.
 
@@ -12,7 +18,49 @@ Farben selbst anpassen: Einfach die Werte in den CSS-Variablen am Anfang ändern
   --icon-size: 2rem;
   --logo-size: 40px;
   --badge-size: 36px;
+
+  --bg: #f5f7fa;
+  --card-bg: #ffffff;
+  --tab-text:#00588b;
+  --tab-bg: #ffffffcc;
+  --tab-border: rgba(0,48,100,.25);
+  --text: #000000;
+  --header-bg: #0062c4;
+  --footer-bg: #0062c4;
+  --footer-text: #ffffff;
 }
+
+/* Header */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand__logo {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%; /* optional: rundes Bild */
+  object-fit: cover;
+}
+
+.brand__text {
+  display: flex;
+  flex-direction: column;
+}
+
+body.dark {
+  --bg: #121212;
+  --card-bg: #1e1e1e;
+  --tab-bg: #f0f0f000;
+  --tab-border: #606060;
+  --tab-text:#0389d7;
+  --text: #f0f0f0;
+  --header-bg: #0d2345;
+  --footer-bg: #0d2345;
+  --footer-text: #f0f0f0;
+}
+/* Header Ende */
 
 html, body {
   height: 100%;
@@ -22,7 +70,8 @@ html, body {
 body {
   margin:0;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
-  background:#f5f7fa;
+  background:var(--bg);
+  color: var(--text);
   overflow: hidden;
 
   display: flex;
@@ -30,10 +79,9 @@ body {
   height: 100vh;
 }
 
-
 .topbar {
   padding:16px;
-  background:var(--blue);
+  background:var(--header-bg);
   color:white;
   display:flex;
   justify-content:space-between;
@@ -68,6 +116,14 @@ header {
 	user-select: none; 
 }
 
+.theme-toggle {
+  margin-left: 8px;
+  border: none;
+  background: transparent;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+}
 
 .footer {
   user-select: none; 
@@ -77,8 +133,8 @@ header {
   align-items: center;
   justify-content: center;
 
-  background: var(--blue);
-  color: white;
+  background: var(--footer-bg);
+  color: var(--footer-text);
 
   font-size: 12px;
   flex-shrink: 0;
@@ -87,14 +143,14 @@ header {
 /* ===== TABS ===== */
 
 .tab {
-  border: 1px solid rgba(0,48,100,.25);
-  background: rgba(255,255,255,.85);
+  border: 1px solid var(--tab-border);
+  background: var(--tab-bg);
   padding: 10px 14px;
   border-radius: 999px;
   cursor: pointer;
   font-weight: 700;
   font-size: 13px;
-  color: var(--blue);
+  color: var(--tab-text);
   transition:
     background .15s ease,
     color .15s ease,
@@ -112,7 +168,7 @@ header {
 
 /* 🟢 Aktiver Tab */
 .tab.is-active {
-  color: var(--blue);
+  color: var(--tab-text);
   border-color: rgba(0,162,171,.55);
   background: rgba(0,162,171,.16);
   box-shadow: 0 6px 14px rgba(0,162,171,.22);
@@ -133,13 +189,13 @@ header {
 }
 
 .card {
-  background:white;
+  background:var(--card-bg);
   border-radius:8px;
   padding:14px;
   display:flex;
   gap:12px;
   text-decoration:none;
-  color:black;
+  color:var(--text);
   border-left:6px solid var(--blue);
 }
 

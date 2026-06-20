@@ -1,3 +1,9 @@
+/*
+ * Linkseite Bloch
+ * Copyright (c) 2026 Fabian Bloch
+ * SPDX-License-Identifier: MIT
+ */
+
 /* Läuft komplett lokal (file://) */
 
 const rawJson = document.getElementById("links-data").textContent;
@@ -49,10 +55,22 @@ function buildTabs() {
 }
 
 function render() {
-  const tab = data[activeTab];
   gridEl.innerHTML = "";
 
-  tab.links
+  let links = [];
+
+  if (search.trim() !== "") {
+    // Suche über alle Tabs
+    // Bei Suche: keine Färbung der Tabs, da Suche über alle Tabs hinweg erfolgt
+    btns = document.querySelectorAll(".tab");
+    btns.forEach(btn => btn.classList.remove("is-active"));
+    links = data.flatMap(tab => tab.links);
+  } else {
+    // Normaler Tab-Modus
+    links = data[activeTab].links;
+  }
+
+  links
     .filter(l =>
       l.title.toLowerCase().includes(search) ||
       l.desc.toLowerCase().includes(search) ||
@@ -116,3 +134,57 @@ document.addEventListener("keydown", function (event) {
     }
   }
 });
+
+// ESC-Taste löscht die Suche und springt zurück zum aktiven Tab
+document.addEventListener("keydown", function (event) {
+  if (event.key === "Escape") {
+    searchInput.value = "";
+    search = "";
+    render();
+
+    // Aktiven Tab markieren
+    const btns = document.querySelectorAll(".tab");
+    btns.forEach((btn, idx) => {
+      if (idx === activeTab) {
+        btn.classList.add("is-active");
+      } else {
+        btn.classList.remove("is-active");
+      }
+    });
+  }
+});
+
+// Enter-Taste auf Suchleiste: erster Link wird geöffnet, bei keinem Suchergebnis Begriff in google suchen
+searchInput.addEventListener("keydown", function (event) {
+  if (event.key === "Enter") {
+    const visibleLinks = Array.from(gridEl.querySelectorAll(".card"));
+    if (visibleLinks.length > 0) {
+      const firstLink = visibleLinks[0].href;
+      window.open(firstLink, "_blank");
+    } else if (search.trim() !== "") {
+      const googleSearchUrl = `https://www.google.com/search?q=${encodeURIComponent(search)}`;
+      window.open(googleSearchUrl, "_blank");
+    }
+  }
+});
+
+// Dark Mode Toggle
+const themeToggle = document.getElementById("themeToggle");
+
+themeToggle.addEventListener("click", () => {
+  document.body.classList.toggle("dark");
+
+  const darkMode = document.body.classList.contains("dark");
+
+  themeToggle.textContent = darkMode ? "☀️" : "🌙";
+
+  localStorage.setItem("theme", darkMode ? "dark" : "light");
+});
+
+// Beim Laden der Seite: Theme aus localStorage anwenden
+const savedTheme = localStorage.getItem("theme");
+
+if (savedTheme === "dark") {
+  document.body.classList.add("dark");
+  document.getElementById("themeToggle").textContent = "☀️";
+}

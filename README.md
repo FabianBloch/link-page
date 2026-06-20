@@ -39,3 +39,19 @@ Das Favicon-Logo wurde mit [realfavicongenerator](https://realfavicongenerator.n
 ## Anpassung
 
 Die Seite kann leicht angepasst werden, indem die JSON-Struktur in `index.html` geändert wird. Neue Tabs und Links können hinzugefügt oder bestehende bearbeitet werden. Die Farben der Karten können durch Ändern der CSS-Variablen in `style.css` angepasst werden. Icons können entweder als Emoji oder als Bild-URL hinzugefügt werden.
+
+## Funktionen
+
+| Tastenkombination | Funktion |
+|-------------------|----------|
+| `Strg + F`        | Suche nach Links basierend auf Titel, Beschreibung oder Tags |
+| `Esc`             | Beendet die Suche |
+| `Enter`           | Öffnet den ersten Link in den Suchergebnissen; Bei leeren Suchergebnissen wird die Eingabe an Google-Suche übergeben |
+| Darkmode-Switch | Wechselt zwischen hellem und dunklem Modus |
+
+
+## Lizenz
+
+Dieses Projekt steht unter der MIT-Lizenz.
+
+Copyright (c) 2026 Fabian Bloch

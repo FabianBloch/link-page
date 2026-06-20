@@ -1,12 +1,16 @@
 <!doctype html>
 <html lang="de">
+  <!--
+  Copyright (c) 2026 Fabian Bloch
+  SPDX-License-Identifier: MIT
+  -->
 <head>
   <meta charset="utf-8" />
   <!-- Head-Titel eingeben -->
   <title>Linkseite</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="style.css" />
-  <!-- <link rel="icon" href="images/landeswappen.jpg"> -->
+  <!-- Favicon-Links oder eigene Icons einbinden -->
   <link rel="icon" type="image/png" href="favicon/favicon-96x96.png" sizes="96x96" />
   <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg" />
   <link rel="shortcut icon" href="favicon/favicon.ico" />
@@ -17,6 +21,9 @@
 <body>
   <header class="topbar">
     <div class="brand">
+      <!-- Logo einfügen -->
+      <img src="favicon\favicon-96x96.png" alt="Logo" class="brand__logo">
+
       <div class="brand__text">
         <!-- Hier können die Überschriften eingetragen werden -->
         <div class="brand__title"><strong>Linkseite</strong></div>
@@ -24,14 +31,19 @@
       </div>
     </div>
 
-    <input id="searchInput" type="search" placeholder="Suche (Strg+S)" />
+    <div class="topbar-right">
+      <input id="searchInput" type="search" placeholder="Suche (Strg+S)">
+
+      <button id="themeToggle" class="theme-toggle" title="Dark Mode">
+        🌙
+      </button>
+    </div>
   </header>
 
   <main class="container">
     <nav id="tabs" class="tabs"></nav>
 
     <section class="panel">
-      <h2 id="activeTabTitle"></h2>
       <div id="grid" class="grid"></div>
     </section>
   </main>
