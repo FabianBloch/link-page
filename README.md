@@ -40,14 +40,18 @@ Das Favicon-Logo wurde mit [realfavicongenerator](https://realfavicongenerator.n
 
 Die Seite kann leicht angepasst werden, indem die JSON-Struktur in `index.html` geändert wird. Neue Tabs und Links können hinzugefügt oder bestehende bearbeitet werden. Die Farben der Karten können durch Ändern der CSS-Variablen in `style.css` angepasst werden. Icons können entweder als Emoji oder als Bild-URL hinzugefügt werden.
 
+Auch die Farben des Darkmodes können in der CSS-Datei angepasst werden. Die Variablen für die Farben sind im Abschnitt `:root` bzw. `body.dark` definiert und können nach Belieben geändert werden.
+
 ## Funktionen
 
 | Tastenkombination | Funktion |
 |-------------------|----------|
-| `Strg + F`        | Suche nach Links basierend auf Titel, Beschreibung oder Tags |
+| `Strg + S`        | Suche nach Links basierend auf Titel, Beschreibung oder Tags |
 | `Esc`             | Beendet die Suche |
 | `Enter`           | Öffnet den ersten Link in den Suchergebnissen; Bei leeren Suchergebnissen wird die Eingabe an Google-Suche übergeben |
 | Darkmode-Switch | Wechselt zwischen hellem und dunklem Modus |
+
+Diese Bedienungshinweise sind auch in der Benutzeroberfläche verfügbar, indem auf das ℹ️-Symbol im Footer geklickt wird.
 
 
 ## Lizenz

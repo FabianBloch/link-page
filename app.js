@@ -188,3 +188,14 @@ if (savedTheme === "dark") {
   document.body.classList.add("dark");
   document.getElementById("themeToggle").textContent = "☀️";
 }
+
+// Info-Dialog
+const infoDialog = document.getElementById("infoDialog");
+
+document.getElementById("infoButton").addEventListener("click", () => {
+  infoDialog.showModal();
+});
+
+document.getElementById("closeInfo").addEventListener("click", () => {
+  infoDialog.close();
+});
